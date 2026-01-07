@@ -1,6 +1,7 @@
 import { Header } from "@/components/header";
 import { Banner } from "@/components/banner";
 import { Footer } from "@/components/footer";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -16,27 +17,27 @@ export default function Home() {
               <p className="text-foreground/60 mb-4">
                 Discover the latest gadgets and technology.
               </p>
-              <a href="/items" className="text-blue-600 hover:underline">
+              <Link href="/items" className="text-blue-600 hover:underline">
                 Shop Now →
-              </a>
+              </Link>
             </div>
             <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold mb-3">Fashion</h3>
               <p className="text-foreground/60 mb-4">
                 Trendy clothing and accessories for everyone.
               </p>
-              <a href="/items" className="text-blue-600 hover:underline">
+              <Link href="/items" className="text-blue-600 hover:underline">
                 Shop Now →
-              </a>
+              </Link>
             </div>
             <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
               <h3 className="text-xl font-semibold mb-3">Home & Living</h3>
               <p className="text-foreground/60 mb-4">
                 Quality items to make your house a home.
               </p>
-              <a href="/items" className="text-blue-600 hover:underline">
+              <Link href="/items" className="text-blue-600 hover:underline">
                 Shop Now →
-              </a>
+              </Link>
             </div>
           </div>
         </section>
