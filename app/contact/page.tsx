@@ -47,7 +47,7 @@ export default function ContactPage() {
       setName("");
       setEmail("");
       setMessage("");
-    } catch (error) {
+    } catch {
       setSubmitStatus({
         type: "error",
         message: "Something went wrong. Please try again.",
@@ -65,7 +65,7 @@ export default function ContactPage() {
           <div className="mb-8 text-center">
             <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
             <p className="text-foreground/60">
-              Have a question or feedback? We'd love to hear from you.
+              Have a question or feedback? We&apos;d love to hear from you.
             </p>
           </div>
 
@@ -73,7 +73,7 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="text-2xl">Send us a message</CardTitle>
               <CardDescription>
-                Fill out the form below and we'll get back to you as soon as
+                Fill out the form below and we&apos;ll get back to you as soon as
                 possible.
               </CardDescription>
             </CardHeader>
