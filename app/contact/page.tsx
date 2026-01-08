@@ -20,15 +20,14 @@ export default function ContactPage() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
+    setSuccessMessage("");
+    setErrorMessage("");
 
     // Simulate form submission (frontend only for now)
     try {
@@ -38,20 +37,14 @@ export default function ContactPage() {
 
       console.log("Contact form submitted:", { name, email, message });
 
-      setSubmitStatus({
-        type: "success",
-        message: "Thank you for your message! We'll get back to you soon.",
-      });
+      setSuccessMessage("Thank you for your message! We'll get back to you soon.");
 
       // Reset form
       setName("");
       setEmail("");
       setMessage("");
     } catch {
-      setSubmitStatus({
-        type: "error",
-        message: "Something went wrong. Please try again.",
-      });
+      setErrorMessage("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -113,15 +106,14 @@ export default function ContactPage() {
                       rows={6}
                     />
                   </div>
-                  {submitStatus.type && (
-                    <p
-                      className={`text-sm ${
-                        submitStatus.type === "success"
-                          ? "text-green-600"
-                          : "text-red-500"
-                      }`}
-                    >
-                      {submitStatus.message}
+                  {successMessage && (
+                    <p className="text-sm text-emerald-600 dark:text-emerald-400">
+                      {successMessage}
+                    </p>
+                  )}
+                  {errorMessage && (
+                    <p className="text-sm text-destructive">
+                      {errorMessage}
                     </p>
                   )}
                   <Button type="submit" className="w-full" disabled={isSubmitting}>
