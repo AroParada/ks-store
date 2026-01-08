@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, Suspense } from "react";
 
 export default function ContactPage() {
   const [name, setName] = useState("");
@@ -37,7 +37,9 @@ export default function ContactPage() {
 
       console.log("Contact form submitted:", { name, email, message });
 
-      setSuccessMessage("Thank you for your message! We'll get back to you soon.");
+      setSuccessMessage(
+        "Thank you for your message! We'll get back to you soon."
+      );
 
       // Reset form
       setName("");
@@ -66,8 +68,8 @@ export default function ContactPage() {
             <CardHeader>
               <CardTitle className="text-2xl">Send us a message</CardTitle>
               <CardDescription>
-                Fill out the form below and we&apos;ll get back to you as soon as
-                possible.
+                Fill out the form below and we&apos;ll get back to you as soon
+                as possible.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -112,11 +114,13 @@ export default function ContactPage() {
                     </p>
                   )}
                   {errorMessage && (
-                    <p className="text-sm text-destructive">
-                      {errorMessage}
-                    </p>
+                    <p className="text-sm text-destructive">{errorMessage}</p>
                   )}
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </div>
@@ -125,7 +129,13 @@ export default function ContactPage() {
           </Card>
         </section>
       </main>
-      <Footer />
+      <Suspense
+        fallback={
+          <div className="w-full border-t border-t-foreground/10 mt-auto" />
+        }
+      >
+        <Footer />
+      </Suspense>
     </div>
   );
 }
