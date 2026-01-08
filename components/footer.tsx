@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Suspense } from "react";
 
 export function Footer() {
   return (
@@ -95,7 +96,9 @@ export function Footer() {
         </div>
         <div className="border-t border-foreground/10 mt-8 pt-8 text-center text-sm text-foreground/60">
           <p>
+            <Suspense fallback={<div>Loading...</div>}>
             &copy; {new Date().getFullYear()} KS Store. All rights reserved.
+            </Suspense>
           </p>
         </div>
       </div>
