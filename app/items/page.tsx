@@ -1,7 +1,6 @@
 import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import {
   Card,
   CardContent,
@@ -127,13 +126,6 @@ export default function Items() {
           </Suspense>
         </div>
       </main>
-      <Suspense
-        fallback={
-          <div className="w-full border-t border-t-foreground/10 mt-auto" />
-        }
-      >
-        <Footer />
-      </Suspense>
     </div>
   );
 }

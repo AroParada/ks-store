@@ -129,13 +129,6 @@ export default function ContactPage() {
           </Card>
         </section>
       </main>
-      <Suspense
-        fallback={
-          <div className="w-full border-t border-t-foreground/10 mt-auto" />
-        }
-      >
-        <Footer />
-      </Suspense>
     </div>
   );
 }

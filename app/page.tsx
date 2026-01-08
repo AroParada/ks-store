@@ -2,7 +2,6 @@ import { Header } from "@/components/header";
 import { Banner } from "@/components/banner";
 import { Footer } from "@/components/footer";
 import Link from "next/link";
-import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -45,13 +44,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Suspense
-        fallback={
-          <div className="w-full border-t border-t-foreground/10 mt-auto" />
-        }
-      >
-        <Footer />
-      </Suspense>
     </div>
   );
 }

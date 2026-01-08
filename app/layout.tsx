@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
+import { Suspense } from "react";
+import { Footer } from "@/components/footer";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -35,6 +37,13 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Suspense
+          fallback={
+            <div className="w-full border-t border-t-foreground/10 mt-auto" />
+          }
+        >
+          <Footer />
+        </Suspense>
       </body>
     </html>
   );
