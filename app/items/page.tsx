@@ -4,6 +4,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 interface Item {
   id: string;
@@ -12,11 +13,13 @@ interface Item {
   price?: number;
   category?: string;
   stock?: number;
+  image?: string;
 }
 
 async function ItemsData() {
   const supabase = await createClient();
   const { data: items } = await supabase.from("Items").select();
+  console.log("Fetched items:", items);
 
   if (!items || items.length === 0) {
     return (
@@ -30,6 +33,13 @@ async function ItemsData() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {items.map((item: Item) => (
         <Card key={item.id} className="flex flex-col hover:shadow-lg transition-shadow">
+          <Image
+            src={item.image || '/images/products/placeholder.jpg'}
+            alt={item.name || "Product Image"}
+            width={400}
+            height={300}
+            className="w-full h-48 object-cover rounded-t-lg"
+          />
           <CardHeader>
             <CardTitle className="line-clamp-2">{item.name || "Untitled Product"}</CardTitle>
             {item.category && (
