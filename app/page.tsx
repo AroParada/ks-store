@@ -13,18 +13,18 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12">Featured Categories</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-3">Electronics</h3>
+              <h3 className="text-xl font-semibold mb-3">Clothing</h3>
               <p className="text-foreground/60 mb-4">
-                Discover the latest gadgets and technology.
+                Stylish and comfortable apparel for all seasons.
               </p>
               <Link href="/items" className="text-blue-600 hover:underline">
                 Shop Now →
               </Link>
             </div>
             <div className="p-6 border rounded-lg hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-semibold mb-3">Fashion</h3>
+              <h3 className="text-xl font-semibold mb-3">Accessories</h3>
               <p className="text-foreground/60 mb-4">
-                Trendy clothing and accessories for everyone.
+                accessories for everyone.
               </p>
               <Link href="/items" className="text-blue-600 hover:underline">
                 Shop Now →

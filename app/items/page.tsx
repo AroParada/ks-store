@@ -80,7 +80,9 @@ export default function Items() {
           </Suspense>
         </div>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="w-full border-t border-t-foreground/10 mt-auto" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

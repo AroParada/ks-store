@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 export function Footer() {
@@ -15,17 +17,26 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Shop</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/items" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/items"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   All Items
                 </Link>
               </li>
               <li>
-                <Link href="/items" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/items"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   New Arrivals
                 </Link>
               </li>
               <li>
-                <Link href="/items" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/items"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   Best Sellers
                 </Link>
               </li>
@@ -35,12 +46,18 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/about" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/about"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/contact"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -50,17 +67,26 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/help" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/help"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/shipping"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   Shipping Info
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-foreground/60 hover:text-foreground transition-colors">
+                <Link
+                  href="/returns"
+                  className="text-foreground/60 hover:text-foreground transition-colors"
+                >
                   Returns
                 </Link>
               </li>
@@ -68,7 +94,9 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-foreground/10 mt-8 pt-8 text-center text-sm text-foreground/60">
-          <p>&copy; {new Date().getFullYear()} KS Store. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} KS Store. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
