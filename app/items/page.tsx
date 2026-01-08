@@ -1,17 +1,86 @@
 import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+interface Item {
+  id: string;
+  name?: string;
+  description?: string;
+  price?: number;
+  category?: string;
+  stock?: number;
+}
 
 async function ItemsData() {
   const supabase = await createClient();
-  const { data: Items } = await supabase.from("Items").select();
+  const { data: items } = await supabase.from("Items").select();
 
-  return <pre>{JSON.stringify(Items, null, 2)}</pre>;
+  if (!items || items.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <p className="text-lg text-foreground/60">No products available at the moment.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {items.map((item: Item) => (
+        <Card key={item.id} className="flex flex-col hover:shadow-lg transition-shadow">
+          <CardHeader>
+            <CardTitle className="line-clamp-2">{item.name || "Untitled Product"}</CardTitle>
+            {item.category && (
+              <Badge variant="secondary" className="w-fit">
+                {item.category}
+              </Badge>
+            )}
+          </CardHeader>
+          <CardContent className="flex-1">
+            <CardDescription className="line-clamp-3">
+              {item.description || "No description available."}
+            </CardDescription>
+          </CardContent>
+          <CardFooter className="flex justify-between items-center">
+            {item.price && (
+              <span className="text-2xl font-bold">
+                ${typeof item.price === 'number' ? item.price.toFixed(2) : item.price}
+              </span>
+            )}
+            {item.stock !== undefined && (
+              <span className={`text-sm ${item.stock > 0 ? 'text-green-600' : 'text-red-600'}`}>
+                {item.stock > 0 ? `${item.stock} in stock` : 'Out of stock'}
+              </span>
+            )}
+          </CardFooter>
+        </Card>
+      ))}
+    </div>
+  );
 }
 
-export default function Instruments() {
+export default function Items() {
   return (
-    <Suspense fallback={<div>Loading items</div>}>
-      <ItemsData />
-    </Suspense>
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1">
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <div className="mb-8">
+            <h1 className="text-4xl font-bold mb-2">Our Products</h1>
+            <p className="text-lg text-foreground/60">Browse our collection of quality items</p>
+          </div>
+          <Suspense fallback={
+            <div className="flex justify-center items-center py-12">
+              <div className="text-lg text-foreground/60">Loading products...</div>
+            </div>
+          }>
+            <ItemsData />
+          </Suspense>
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
