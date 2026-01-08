@@ -94,11 +94,17 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <div className="border-t border-foreground/10 mt-8 pt-8 text-center text-sm text-foreground/60">
-          <p>
-            &copy; {new Date().getFullYear()} KS Store. All rights reserved.
-          </p>
-        </div>
+        <Suspense
+          fallback={
+            <div className="w-full border-t border-t-foreground/10 mt-auto" />
+          }
+        >
+          <div className="border-t border-foreground/10 mt-8 pt-8 text-center text-sm text-foreground/60">
+            <p>
+              &copy; {new Date().getFullYear()} KS Store. All rights reserved.
+            </p>
+          </div>
+        </Suspense>
       </div>
     </footer>
   );
