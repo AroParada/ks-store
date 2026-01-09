@@ -24,7 +24,6 @@ export default function AboutPage() {
                 <text
                   x="400"
                   y="225"
-                  fontFamily="system-ui, -apple-system, sans-serif"
                   fontSize="48"
                   fontWeight="bold"
                   fill="#64748b"
@@ -37,7 +36,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="prose prose-lg dark:prose-invert mx-auto">
+          <div className="max-w-3xl mx-auto">
             <p className="text-lg text-foreground/80 mb-6">
               Welcome to KS Store, where quality meets convenience. We are dedicated to 
               providing our customers with an exceptional shopping experience and a 
