@@ -1,7 +1,6 @@
 "use client";
 
 import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -76,6 +75,7 @@ export default function ContactPage() {
               <form onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-6">
                   <div className="grid gap-2">
+                    <div className="grid gap-2">
                     <Label htmlFor="name">Name</Label>
                     <Input
                       id="name"
@@ -85,6 +85,7 @@ export default function ContactPage() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                     />
+                  </div>
                   </div>
                   <div className="grid gap-2">
                     <Label htmlFor="email">Email</Label>
